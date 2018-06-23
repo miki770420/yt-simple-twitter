@@ -8,7 +8,15 @@ tweet front gate
           <%= image_tag "http://lorempixel.com/400/200/human", class: "img-responsive img-circle" %>
         </div>
         <div class="col-md-6">
-          <%= link_to tweet.user.name,  %>, <%= tweet.created_at %>
+          <h3><%= link_to tweet.user.name, user_path(tweet.user) %>, <%= tweet.created_at %></h3>
+          <p><%= truncate(tweet.description, length: 80) %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
 
         
       
