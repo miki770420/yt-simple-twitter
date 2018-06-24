@@ -6,6 +6,13 @@ before_action :authenticate_admin
     @tweet = Tweet.new
   end
 
+  def destroy
+    @tweet = Tweet.find(params[:id])
+    @tweet.destroy
+    redirect_back(fallback_location: root_path)
+    flash[:alert] = "tweet was deleted"
+  end
+
 private 
   def authenticate_admin
       unless current_user.admin?
