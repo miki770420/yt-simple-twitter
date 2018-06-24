@@ -1,10 +1,13 @@
 <div class="col-md-4">
   <ul class="list-unstyled">
     <li><%= image_tag "http://lorempixel.com/140/140/people", class: "img-responsive img-circle" %></li>
-    <li><strong><h5><%= link_to current_user.name, user_path(current_user) %></h5></strong></li>
-    <li><h6><%= current_user.introduction %></h6></li>
-    <li><h6>Tweets <%= current_user.tweets.count %></li>
+    <li><strong><h5><%= link_to @user.name, user_path(@user) %></h5></strong></li>
+    <li><h6><%= @user.introduction %></h6></li>
+    <li><h6>Tweets <%= @user.tweets.count %></li>
   </ul>
+  <% if current_user == @user %>
+    <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-primary" %>
+  <% end %>
 </div>
 
 <div class="col-md-8">
