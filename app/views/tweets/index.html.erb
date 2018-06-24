@@ -2,14 +2,14 @@ tweet front gate
 
 <div class="container">
   <%= form_for [@tweet] do |f| %>
-      <div class="form_group">
-        <%= f.text_area :description, placeholder: "tweet here!", class: "form-control" %>
-      </div>
-      <div class="form_group">
-        <%= f.submit class: "btn btn-primary" %>
-        <%= f.button "Cancel", type: :reset, class: "btn btn-default" %>
-      </div>
-    <% end %>
+    <div class="form_group">
+      <%= f.text_area :description, placeholder: "tweet here!", class: "form-control" %>
+    </div>
+    <div class="form_group">
+      <%= f.submit class: "btn btn-primary" %>
+      <%= f.button "Cancel", type: :reset, class: "btn btn-default" %>
+    </div>
+  <% end %>
 
   <% @tweets.each do |tweet| %>
     <div class="col-md-6">

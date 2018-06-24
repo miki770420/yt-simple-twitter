@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_many :tweets, dependent: :destroy
 
   mount_uploader :avatar, PhotoUploader
+
+  def admin?
+    self.role == "admin"
+  end
 end
