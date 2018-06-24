@@ -1,0 +1,16 @@
+<div class="col-md-4">
+  <ul class="list-unstyled">
+    <li><%= image_tag "http://lorempixel.com/140/140/people", class: "img-responsive img-circle" %></li>
+    <li><strong><h5><%= link_to current_user.name, user_path(current_user) %></h5></strong></li>
+    <li><h6><%= current_user.introduction %></h6></li>
+    <li><h6>Tweets <%= current_user.tweets.count %></li>
+  </ul>
+</div>
+
+<div class="col-md-8">
+  <% @tweeted_tweets.each do |tweet| %>
+    <%= image_tag "http://lorempixel.com/140/140/people", class: "img-responsive img-circle" %>
+    <h5><%= link_to tweet.user.name, user_path(tweet.user) %>, <%= tweet.created_at %></h5>
+    <p><%= tweet.description %></p>
+  <% end %>
+</div>
