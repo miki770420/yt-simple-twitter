@@ -6,9 +6,14 @@ class TweetsController < ApplicationController
   end
 
   def create
-    @tweet = current_user.tweets.build(tweet_params)
-    @tweet.save!
-    redirect_back(fallback_location: root_path)
+    @user = current_user
+    @tweet = @user.tweets.build(tweet_params)
+    if @tweet.save
+      redirect_to root_path
+    else
+      render :index
+      flash[:alert] = "not able to tweet"
+    end
   end
 
 
