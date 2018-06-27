@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates_uniqueness_of :name, :email
   validates_presence_of :name, :email
   has_many :tweets, dependent: :destroy
+  has_many :replies, dependent: :restrict_with_error
 
   mount_uploader :avatar, PhotoUploader
 
