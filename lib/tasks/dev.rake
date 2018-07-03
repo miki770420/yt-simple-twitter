@@ -1,4 +1,19 @@
 namespace :dev do
+
+  task fake_followship: :environment do
+  Followship.destroy_all
+
+  User.all.each do |user|
+    10.times do |i|
+      user.followships.create!(
+      following: User.select(:id).distinct
+      )
+    end
+  end
+    puts "have created fake followship"
+    puts "now you have #{Followship.count} followship data"
+  end
+
   task fake_user: :environment do
 
     20.times do |i|
